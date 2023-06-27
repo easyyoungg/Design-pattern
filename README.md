@@ -1,2 +1,2 @@
 # Design-pattern
-shared some type of Design-pattern
+Share some design patterns
