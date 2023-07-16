@@ -1,1 +1,40 @@
+package main
+
+import "fmt"
+
+const T1NAME = "T1"
+const T2NAME = "T2"
+
+type prodcut interface {
+	Do()
+}
+
+type factory struct{}
+
+type T1 struct{}
+type T2 struct{}
+
+func (t T1) Do() {
+	fmt.Printf("T1 do.\n")
+}
+
+func (t T2) Do() {
+	fmt.Printf("T2 do.\n")
+}
+
+func (t factory) Check(name string) prodcut {
+	switch name {
+	case T1NAME:
+		return T1{}
+	case T2NAME:
+		return T2{}
+	}
+	return nil
+}
+
+func main() {
+	var f factory
+	f.Check(T1NAME).Do()
+	f.Check(T2NAME).Do()
+}
 
